@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MenuApp</string>
+    <string name="menu_icon">menu icon</string>
+    <string name="menu_app">Menu App</string>
+    <string name="menu_photo">menu photo</string>
+    <string name="gradient_bg">gradient bg</string>
+</resources>
