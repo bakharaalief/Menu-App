@@ -16,8 +16,8 @@ class MenuListAdapter : ListAdapter<ResultsItem, MenuListAdapter.MyViewHolder>(D
 
     class MyViewHolder(binding: MenuItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val menuItem = binding.menuItem
-        private val photoMenu = binding.photoMenuItem
-        private val nameMenu = binding.nameMenuItem
+        private val menuPhoto = binding.menuItemPhoto
+        private val menuName = binding.menuItemName
 
         fun bind(resultsItem: ResultsItem) {
             Glide
@@ -26,9 +26,9 @@ class MenuListAdapter : ListAdapter<ResultsItem, MenuListAdapter.MyViewHolder>(D
                 .centerCrop()
                 .circleCrop()
                 .placeholder(R.drawable.ic_launcher_background)
-                .into(photoMenu)
+                .into(menuPhoto)
 
-            nameMenu.text = resultsItem.title
+            menuName.text = resultsItem.title
         }
     }
 

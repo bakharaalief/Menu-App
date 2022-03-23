@@ -4,4 +4,6 @@
     <string name="menu_app">Menu App</string>
     <string name="menu_photo">menu photo</string>
     <string name="gradient_bg">gradient bg</string>
+    <string name="search">search</string>
+    <string name="search_hint">Masukkan Nama Menu</string>
 </resources>

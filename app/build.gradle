@@ -19,7 +19,7 @@ android {
         buildConfigField("String", "api_key", '"2ab02fe7eba74cb4be5b0acc452b6f87"')
     }
 
-    buildFeatures{
+    buildFeatures {
         viewBinding true
     }
 

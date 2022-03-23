@@ -13,6 +13,7 @@ class ViewModelFactory private constructor(
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
             modelClass.isAssignableFrom(MainVM::class.java) -> MainVM(menuRepository) as T
+            modelClass.isAssignableFrom(DetailVM::class.java) -> DetailVM(menuRepository) as T
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }
