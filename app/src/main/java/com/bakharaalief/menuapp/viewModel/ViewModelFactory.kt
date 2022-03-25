@@ -14,6 +14,7 @@ class ViewModelFactory private constructor(
         return when {
             modelClass.isAssignableFrom(MainVM::class.java) -> MainVM(menuRepository) as T
             modelClass.isAssignableFrom(DetailVM::class.java) -> DetailVM(menuRepository) as T
+            modelClass.isAssignableFrom(BookmarkVM::class.java) -> BookmarkVM(menuRepository) as T
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }

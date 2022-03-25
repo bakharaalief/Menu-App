@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -14,8 +15,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.bakharaalief.menuapp.R
 import com.bakharaalief.menuapp.adapter.MenuListAdapter
 import com.bakharaalief.menuapp.data.Result
-import com.bakharaalief.menuapp.data.remote.response.ResultsItem
+import com.bakharaalief.menuapp.data.local.enitity.MenuEntity
 import com.bakharaalief.menuapp.databinding.ActivityMainBinding
+import com.bakharaalief.menuapp.ui.bookmark.BookmarkActivity
 import com.bakharaalief.menuapp.ui.detail.DetailActivity
 import com.bakharaalief.menuapp.viewModel.MainVM
 import com.bakharaalief.menuapp.viewModel.ViewModelFactory
@@ -77,6 +79,16 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.bookmark -> {
+                toBookmarkActivity()
+                true
+            }
+            else -> true
+        }
+    }
+
     private fun searchMenu(keyword: String) {
         viewModel.searchMenu(keyword).observe(this) { status ->
             when (status) {
@@ -93,18 +105,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setUpdateRv(listMenus: List<ResultsItem>) {
+    private fun setUpdateRv(listMenus: List<MenuEntity>) {
         val adapter = MenuListAdapter()
         adapter.submitList(listMenus)
         adapter.setOnItemClickCallback(object : MenuListAdapter.OnItemClickCallback {
-            override fun onClick(resultsItem: ResultsItem) {
+            override fun onClick(menuEntity: MenuEntity) {
                 val intent = Intent(this@MainActivity, DetailActivity::class.java)
-                intent.putExtra(DetailActivity.DETAIL_DATA, resultsItem)
+                intent.putExtra(DetailActivity.DETAIL_DATA, menuEntity)
                 startActivity(intent)
             }
         })
 
         binding.menuRv.adapter = adapter
+    }
+
+    private fun toBookmarkActivity() {
+        val intent = Intent(this, BookmarkActivity::class.java)
+        startActivity(intent)
     }
 
     private fun setLoadingIndicator(loading: Boolean) {

@@ -7,9 +7,10 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bakharaalief.menuapp.R
 import com.bakharaalief.menuapp.adapter.InstructionListAdapter
 import com.bakharaalief.menuapp.data.Result
-import com.bakharaalief.menuapp.data.remote.response.ResultsItem
+import com.bakharaalief.menuapp.data.local.enitity.MenuEntity
 import com.bakharaalief.menuapp.data.remote.response.StepsItem
 import com.bakharaalief.menuapp.databinding.ActivityDetailBinding
 import com.bakharaalief.menuapp.viewModel.DetailVM
@@ -20,11 +21,13 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
 
-    private lateinit var menuData: ResultsItem
+    private lateinit var menuData: MenuEntity
 
     private val viewModel by viewModels<DetailVM> {
         ViewModelFactory.getInstance(this)
     }
+
+    private var isBookmarked: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +36,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //get data
-        menuData = intent.getParcelableExtra<ResultsItem>(DETAIL_DATA) as ResultsItem
+        menuData = intent.getParcelableExtra<MenuEntity>(DETAIL_DATA) as MenuEntity
 
         //setData
         setActionBar()
@@ -56,6 +59,25 @@ class DetailActivity : AppCompatActivity() {
                     Toast.makeText(this, status.message, Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+
+        //check is bookmarked or not
+        viewModel.getMenuIsBookmarked(menuData.id).observe(this) { status ->
+            isBookmarked = status
+            setBookmarkedIcon(status)
+        }
+
+        //floating button
+        binding.floatingActionButton.setOnClickListener {
+            val message = if (isBookmarked) {
+                viewModel.removeMenu(menuData)
+                "Berhasil remove menu"
+            } else {
+                viewModel.saveMenu(menuData)
+                "Berhasil tambah menu"
+            }
+
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -89,6 +111,12 @@ class DetailActivity : AppCompatActivity() {
 
     private fun setLoadingIndicator(loading: Boolean) {
         binding.loadingIndicator.visibility = if (loading) View.VISIBLE else View.GONE
+    }
+
+    private fun setBookmarkedIcon(status: Boolean) {
+        val drawable =
+            if (status) R.drawable.ic_baseline_bookmark_24 else R.drawable.ic_baseline_bookmark_border_24
+        binding.floatingActionButton.setImageResource(drawable)
     }
 
     companion object {

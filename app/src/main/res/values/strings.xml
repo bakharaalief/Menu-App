@@ -6,4 +6,6 @@
     <string name="gradient_bg">gradient bg</string>
     <string name="search">search</string>
     <string name="search_hint">Masukkan Nama Menu</string>
+    <string name="bookmark_button">bookmark button</string>
+    <string name="bookmark">Bookmark</string>
 </resources>

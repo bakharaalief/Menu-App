@@ -6,11 +6,15 @@
         <entry key="..\:/projects/android/MenuApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.142" />
         <entry key="..\:/projects/android/MenuApp/app/src/main/res/drawable/gradient_bg.xml" value="0.142" />
         <entry key="..\:/projects/android/MenuApp/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.142" />
+        <entry key="..\:/projects/android/MenuApp/app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.142" />
+        <entry key="..\:/projects/android/MenuApp/app/src/main/res/drawable/ic_baseline_bookmark_border_24.xml" value="0.127" />
         <entry key="..\:/projects/android/MenuApp/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.142" />
         <entry key="..\:/projects/android/MenuApp/app/src/main/res/drawable/ic_food_svgrepo_com.xml" value="0.142" />
         <entry key="..\:/projects/android/MenuApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.142" />
+        <entry key="..\:/projects/android/MenuApp/app/src/main/res/layout/activity_bookmark.xml" value="0.259375" />
         <entry key="..\:/projects/android/MenuApp/app/src/main/res/layout/activity_detail.xml" value="0.22037037037037038" />
         <entry key="..\:/projects/android/MenuApp/app/src/main/res/layout/activity_main.xml" value="0.22037037037037038" />
+        <entry key="..\:/projects/android/MenuApp/app/src/main/res/layout/activity_splash.xml" value="0.22037037037037038" />
         <entry key="..\:/projects/android/MenuApp/app/src/main/res/layout/instruction_item.xml" value="0.22037037037037038" />
         <entry key="..\:/projects/android/MenuApp/app/src/main/res/layout/menu_item.xml" value="0.2" />
         <entry key="..\:/projects/android/MenuApp/app/src/main/res/menu/option_menu_main.xml" value="0.259375" />

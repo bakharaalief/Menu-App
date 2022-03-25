@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bakharaalief.menuapp.R
-import com.bakharaalief.menuapp.data.remote.response.ResultsItem
+import com.bakharaalief.menuapp.data.local.enitity.MenuEntity
 import com.bakharaalief.menuapp.databinding.MenuItemBinding
 import com.bumptech.glide.Glide
 
-class MenuListAdapter : ListAdapter<ResultsItem, MenuListAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class MenuListAdapter : ListAdapter<MenuEntity, MenuListAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -19,16 +19,16 @@ class MenuListAdapter : ListAdapter<ResultsItem, MenuListAdapter.MyViewHolder>(D
         private val menuPhoto = binding.menuItemPhoto
         private val menuName = binding.menuItemName
 
-        fun bind(resultsItem: ResultsItem) {
+        fun bind(menuEntity: MenuEntity) {
             Glide
                 .with(menuItem.context)
-                .load(resultsItem.image)
+                .load(menuEntity.image)
                 .centerCrop()
                 .circleCrop()
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(menuPhoto)
 
-            menuName.text = resultsItem.title
+            menuName.text = menuEntity.title
         }
     }
 
@@ -39,11 +39,11 @@ class MenuListAdapter : ListAdapter<ResultsItem, MenuListAdapter.MyViewHolder>(D
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val resultsItem = getItem(position)
+        val data = getItem(position)
 
-        holder.bind(resultsItem)
+        holder.bind(data)
         holder.menuItem.setOnClickListener {
-            onItemClickCallback.onClick(resultsItem)
+            onItemClickCallback.onClick(data)
         }
     }
 
@@ -52,19 +52,19 @@ class MenuListAdapter : ListAdapter<ResultsItem, MenuListAdapter.MyViewHolder>(D
     }
 
     interface OnItemClickCallback {
-        fun onClick(resultsItem: ResultsItem)
+        fun onClick(menuEntity: MenuEntity)
     }
 
     companion object {
-        private val DIFF_CALLBACK: DiffUtil.ItemCallback<ResultsItem> =
-            object : DiffUtil.ItemCallback<ResultsItem>() {
-                override fun areItemsTheSame(oldItem: ResultsItem, newItem: ResultsItem): Boolean {
+        private val DIFF_CALLBACK: DiffUtil.ItemCallback<MenuEntity> =
+            object : DiffUtil.ItemCallback<MenuEntity>() {
+                override fun areItemsTheSame(oldItem: MenuEntity, newItem: MenuEntity): Boolean {
                     return oldItem.id == newItem.id
                 }
 
                 override fun areContentsTheSame(
-                    oldItem: ResultsItem,
-                    newItem: ResultsItem
+                    oldItem: MenuEntity,
+                    newItem: MenuEntity
                 ): Boolean {
                     return oldItem == newItem
                 }
