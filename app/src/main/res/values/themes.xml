@@ -18,6 +18,11 @@
         <item name="colorControlNormal">@color/white</item>
     </style>
 
+    <style name="NewTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:background">@color/primaryColor</item>
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
     <style name="BaseBoldTheme">
         <item name="android:textStyle">bold</item>
     </style>

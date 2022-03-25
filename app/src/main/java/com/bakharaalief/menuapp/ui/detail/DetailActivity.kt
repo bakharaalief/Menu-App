@@ -100,6 +100,7 @@ class DetailActivity : AppCompatActivity() {
         Glide
             .with(this)
             .load(menuData.image)
+            .placeholder(R.drawable.ic_baseline_image_24)
             .into(binding.menuPhotoToolbar)
     }
 

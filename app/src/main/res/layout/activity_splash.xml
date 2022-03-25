@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryColor"
+    android:theme="@style/NewTheme"
     tools:context=".ui.splash.SplashActivity">
 
     <ImageView
@@ -27,8 +27,8 @@
         android:layout_marginTop="20dp"
         android:text="@string/menu_app"
         android:textColor="?colorControlNormal"
-        android:textStyle="bold"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.5"

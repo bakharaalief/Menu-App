@@ -1,7 +1,6 @@
 package com.bakharaalief.menuapp.di
 
 import android.content.Context
-import androidx.room.RoomDatabase
 import com.bakharaalief.menuapp.data.MenuRepository
 import com.bakharaalief.menuapp.data.local.room.MenuDB
 import com.bakharaalief.menuapp.data.remote.retorfit.ApiConfig

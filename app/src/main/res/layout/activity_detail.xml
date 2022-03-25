@@ -31,7 +31,7 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/menu_photo"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background" />
+                    tools:src="@drawable/sample_image" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -61,8 +61,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_baseline_bookmark_border_24"
-        android:contentDescription="@string/bookmark_button" />
+        android:contentDescription="@string/bookmark_button"
+        android:src="@drawable/ic_baseline_bookmark_border_24" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

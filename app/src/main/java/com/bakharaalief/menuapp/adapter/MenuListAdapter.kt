@@ -25,7 +25,7 @@ class MenuListAdapter : ListAdapter<MenuEntity, MenuListAdapter.MyViewHolder>(DI
                 .load(menuEntity.image)
                 .centerCrop()
                 .circleCrop()
-                .placeholder(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.ic_baseline_image_24)
                 .into(menuPhoto)
 
             menuName.text = menuEntity.title
